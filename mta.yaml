@@ -35,9 +35,9 @@ modules:
 
   - name: ejercicio1-ventas
     type: approuter.nodejs
-    path: app # from cds.env.folders. Consider also cds.env.build.target -> gen/app
+    path: app/ # from cds.env.folders. Consider also cds.env.build.target -> gen/app
     parameters:
-      # keep-existing-routes: true
+      keep-existing-routes: true
       disk-quota: 256M
       memory: 256M
     requires:
@@ -45,7 +45,7 @@ modules:
         group: destinations
         properties:
           name: srv-api # must be used in xs-app.json as well
-          url: '~{srv-url}'
+          url: ~{srv-url}
           forwardAuthToken: true
       - name: ejercicio1-ventas-xsuaa
 
